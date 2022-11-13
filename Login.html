@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Login.css" />
+  </head>
+  <body>
+    <div class="content">
+      <br /><br />
+      <h2>LOGIN</h2>
+      <form action="" method="POST">
+        <label for="email" id="email_label"><b>E-mail Address :</b></label
+        ><br />
+        <input
+          type="email"
+          id="email"
+          class="form-data"
+          name="email"
+          placeholder="Enter Registered E-mail Address"
+          size="56"
+          required
+        /><br />
+        <label for="otp" id="otp_label"><b>Enter OTP :</b></label
+        ><br />
+        <input
+          type="text"
+          id="otp"
+          class="form-data"
+          name="otp"
+          placeholder="Enter OTP"
+          size="56"
+          required
+        /><br /><br />
+        <button class="login" name="submit" onclick="login()">LOGIN</button><br /><br />
+      </form>
+      <button class="generateotp" name="submit" onclick="generateOtp()">
+        GENERATE OTP</button
+      ><br /><br /><br /><br />
+    </div>
+
+    <script>
+        var newOtp = "";
+      function generateOtp() {
+        
+        var digits = "0123456789";
+        let OTP = "";
+        for (let i = 0; i < 4; i++) {
+          OTP += digits[Math.floor(Math.random() * 10)];
+        }
+        alert(OTP);
+        newOtp = OTP;
+      }
+
+      function login(){
+        let ot = document.getElementById("otp").value;
+        if(ot === newOtp){
+            alert("Logged In");
+        }else{
+            alert("Wrong OTP");
+        }
+      }
+    </script>
+  </body>
+</html>
